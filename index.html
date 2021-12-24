@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@next" defer></script>
+     <!-- imports vue as a global variable, so you can use Vue, confused as to why this isnt working and I had to disable eslint next-line no-undef--->
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Just A Christmas Questionaire</h1>
+    </header>
+    <section id="events">
+      <h2></h2>
+      <p>How awesome is Christmas?</p>
+      <h1>{{ counter }} %</h1>
+      <button @click="add(10)"> Totally 10% more awesome!</button>
+      <!-- v-on: is an event listener and @ is the shorthand, click is the event --->
+      <button @click="reduce(5)">Ehh, it's not that great, by like 5%...</button>
+      <p>What are your favorite things to do on Christmas morning?</p>
+      <input type="text" v-model="addedActivity"/>
+      <button @click="addActivity" >Add A Favorite Activity</button>
+      <h2 v-if="activities.length === 0" >Awh, nothing? That's a shame!</h2>
+       <!-- conditional rendering --->
+      <ul>
+        <li>{{activities}}</li>
+      </ul>
+      <p>What would you name your reindeer?</p>
+      <input type="text" v-model="name" />
+      <!-- v-model is 2-way binding, vue updates the state of name --->
+      <button @click="resetInput">Thought of a better name?</button>
+      <p>My reindeer would be: {{ fullName }}</p>
+    </section>
+  </body>
+</html>
