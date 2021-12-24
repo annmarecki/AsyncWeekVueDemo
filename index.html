@@ -28,9 +28,10 @@
       <input type="text" v-model="addedActivity"/>
       <button @click="addActivity" >Add A Favorite Activity</button>
       <h2 v-if="activities.length === 0" >Awh, nothing? That's a shame!</h2>
-       <!-- conditional rendering --->
-      <ul>
-        <li>{{activities}}</li>
+       <!-- conditional rendering, v-else has to be directly next to a v-if--->
+       <ul v-else>
+        <li v-for="activity in activities">{{ activity }}</li>
+      <!-- v-for works life a for loop--->
       </ul>
       <p>What would you name your reindeer?</p>
       <input type="text" v-model="name" />
